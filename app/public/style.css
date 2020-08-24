@@ -4,6 +4,7 @@
 
 } 
 
+
 img{
     display: block;
     max-width: 100%;
@@ -112,6 +113,10 @@ body{
     height: 370px;
     overflow-y: scroll;
     grid-column: 2;
+}
+.animais-lista li{
+ 
+    cursor: pointer;
 }
 
 .animais-lista::-webkit-scrollbar{
@@ -245,6 +250,31 @@ body{
     .copy {
         margin-bottom: 0;
         text-align: center;
+    }
+}
+
+/* EFFECTS */
+
+.js-animals-descript section{
+    display: none;
+}
+
+.js-animals-descript section.activeAnimals{
+    display: block !important;
+    animation: showDescript .5s forwards;
+}
+
+@keyframes showDescript{
+
+    from{
+        opacity: 0;
+        transform: translate3d(-30px,0,0)
+    }
+    to{
+
+        opacity: 1;
+        transform: translate3d(0,0,0)
+
     }
 }
 
