@@ -5,13 +5,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display+SC&display=swap" rel="stylesheet">
+    <script> document.documentElement.className += ' js'</script>
     <link rel="stylesheet" href="public/style.css">
     <title>Animais Fantasticos</title>
 </head>
 
 <body>
 
-    <nav class="menu">
+    <nav class="menu js-menu">
         <ul>
             <li><a href="#animais">Animais</a></li>
             <li><a href="#faq">Faq</a></li>
@@ -20,7 +21,7 @@
         </ul>
     </nav>
 
-    <section class="grid-section animais" id="animais">
+    <section class="grid-section animais js-section" id="animais">
         <h1 class="titulo">Animais fantasticos</h1>
 
         <ul class="animais-lista js-animals-imgList">
@@ -52,7 +53,7 @@
 
         <div class="animais-descript js-animals-descript">
 
-            <section class="activeAnimals">
+            <section>
 
                 <h2>Raposa</h2>
                 <p>
@@ -217,7 +218,7 @@
 
     </section>
 
-    <section class="grid-section faq" id="faq">
+    <section class="grid-section faq js-animals-faq js-section" id="faq">
 
         <h1 class="titulo">FAQ</h1>
 
@@ -257,8 +258,10 @@
 
     </section>
 
-    <section class="grid-section contato" id="contato">
-
+    <section class="grid-section contato js-section" id="contato">
+<h1  class="titulo">
+            Contato
+        </h1>
         <div class="mapa">
 
             <img src="src/images/mapa.png" alt="">
@@ -267,9 +270,7 @@
 
         <ul class="dados">
             
-        <h1 >
-            Contato
-        </h1>
+        
             <li>
                 joao.souza5501@gmail.com
             </li>
