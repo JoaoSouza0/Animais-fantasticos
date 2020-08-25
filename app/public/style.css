@@ -255,7 +255,7 @@ body{
 
 /* EFFECTS */
 
-.js-animals-descript section{
+.js .js-animals-descript section{
     display: none;
 }
 
@@ -278,3 +278,51 @@ body{
     }
 }
 
+.js .js-animals-faq dd{
+
+    display: none;
+}
+
+.js .js-animals-faq dt::after{
+
+    content: '↺';
+    margin-left: 10px;
+}
+
+.js .js-animals-faq dt.activeAccordion::after{
+
+    content: '↷';
+}
+
+
+.js .js-animals-faq dd.activeAccordion{
+
+    display: block;
+    animation: slideDown .5s forwards
+}
+
+@keyframes slideDown{
+
+    from{
+        opacity: 0;
+        max-height: 0;
+    }to{
+        opacity: 1;
+        max-height: 200px;
+    }   
+}
+
+.js .js-section {
+
+    opacity: 0;
+    transition: .3s;
+    transform: translate3d(-30px,0,0);
+
+}
+
+.js .js-section.activeSection {
+
+    opacity: 1;
+    transform: translate3d(0,0,0);
+
+}
