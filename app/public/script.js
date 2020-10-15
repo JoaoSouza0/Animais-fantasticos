@@ -2,10 +2,16 @@ import initTab from './js/initTab.js'
 import initAccordion from './js/initAcordion.js'
 import initScrollSmooth from './js/initScrollSmoth.js'
 import initScrollSection from './js/initScrollSection.js'
-import initModal from './js/activeModal.js'
+
+import activeModal from './js/activeModal.js'
+import activeToolTip from './js/activeToolTip.js'
+import activeDropDown from './js/activeDropDown.js'
 
 initTab()
 initAccordion()
 initScrollSmooth()
 initScrollSection()
-initModal()
+
+activeModal()
+activeToolTip()
+activeDropDown()
