@@ -6,8 +6,9 @@ export default function outSideClick(element, eventos, callBack) {
     if (!element.hasAttribute(outside)) {
 
         eventos.forEach((userEvents) => {
-            html.addEventListener(userEvents, handleOutSide)
+            setTimeout(()=>{html.addEventListener(userEvents, handleOutSide)})
         })
+
         element.setAttribute(outside, '')
     }
 
