@@ -12,7 +12,7 @@ export default function initAnimaScroll() {
            
             if (isSectionVisible) {
                 item.classList.add('active')
-            } else {
+            } else if( item.classList.contains('active')){
                 item.classList.remove('active')
             }
 
