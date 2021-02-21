@@ -319,3 +319,7 @@ body, h1, h2, ul, li, p, dd, dt, dl {
 
   }
   
+  [data-btc]{
+    background-color: #3f4;
+
+  }
