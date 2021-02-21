@@ -1,5 +1,6 @@
 export default function initAnimaNumeros() {
-    function animaNumeros(params) {
+    function animaNumeros() {
+        
         const numeros = document.querySelectorAll('[data-numero]')
 
         numeros.forEach(numero => {
