@@ -1,49 +1,45 @@
 export default function initToolTip() {
+  const map = document.querySelector('[data-mapa]');
 
+  const onMouseMove = {
 
-    const map = document.querySelector('[data-mapa]')
+    handleEvent(e) {
+      this.element.style.top = `${e.pageY + 20}px`;
+      this.element.style.left = `${e.pageX + 20}px`;
+    },
 
-    map.addEventListener('mouseover', handleMap)
+  };
 
+  function criarToolTip() {
+    const toolTip = document.createElement('div');
+    const msg = map.getAttribute('title');
+    toolTip.innerText = msg;
+    toolTip.classList.add('tooltip');
+    document.body.appendChild(toolTip);
 
-    function handleMap(e) {
-        const toolTipBox = criarToolTip()
-        toolTipBox.style.top = (e.pageY + 20) + 'px'
-        toolTipBox.style.left = (e.pageX + 20) + 'px'
-        onMouseMove.element = toolTipBox
-        removeToolTip.element = toolTipBox
+    return toolTip;
+  }
 
-        this.addEventListener('mouseleave', removeToolTip)
-        this.addEventListener('mousemove', onMouseMove)
-    }
+  const removeToolTip = {
 
-    const onMouseMove = {
+    handleEvent() {
+      this.element.remove();
+      map.removeEventListener('mouseleave', removeToolTip);
+      map.removeEventListener('mousemove', onMouseMove);
+    },
 
-        handleEvent(e) {
-            this.element.style.top = (e.pageY + 20) + 'px'
-            this.element.style.left = (e.pageX + 20) + 'px'
-        }
+  };
 
-    }
+  function handleMap(e) {
+    const toolTipBox = criarToolTip();
+    toolTipBox.style.top = `${e.pageY + 20}px`;
+    toolTipBox.style.left = `${e.pageX + 20}px`;
+    onMouseMove.element = toolTipBox;
+    removeToolTip.element = toolTipBox;
 
-    const removeToolTip = {
+    this.addEventListener('mouseleave', removeToolTip);
+    this.addEventListener('mousemove', onMouseMove);
+  }
 
-        handleEvent() {
-            this.element.remove()
-            map.removeEventListener('mouseleave', removeToolTip)
-            map.removeEventListener('mousemove', onMouseMove)
-        }
-
-    }
-
-
-    function criarToolTip(event) {
-        const toolTip = document.createElement('div')
-        const msg = map.getAttribute('title')
-        toolTip.innerText = msg
-        toolTip.classList.add('tooltip')
-        document.body.appendChild(toolTip)
-
-        return toolTip
-    }
+  map.addEventListener('mouseover', handleMap);
 }
