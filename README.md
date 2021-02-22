@@ -19,7 +19,7 @@ O projeto ainda está em desenvolvimento e as próximas atualizações serão vo
 - [x] FaQ
 - [x] Contato
 - [ ] Slide
-- [ ] Automação FrontEnd
+- [x] Automação FrontEnd
 - [ ] Refatoração
 
 ## 💻 Pré-requisitos
