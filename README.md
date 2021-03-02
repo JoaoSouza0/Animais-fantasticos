@@ -18,6 +18,10 @@ O projeto ainda está em desenvolvimento e as próximas atualizações serão vo
 - [x] Introdução dos Animais
 - [x] FaQ
 - [x] Contato
+<<<<<<< HEAD
+=======
+- [ ] Slide
+>>>>>>> 972ae039f0facf19aaaf6a6b8f097b5f84981114
 - [x] Automação FrontEnd
 - [ ] Refatoração
 - [ ] Slide
