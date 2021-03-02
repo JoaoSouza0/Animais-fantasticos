@@ -18,9 +18,9 @@ O projeto ainda está em desenvolvimento e as próximas atualizações serão vo
 - [x] Introdução dos Animais
 - [x] FaQ
 - [x] Contato
-- [ ] Slide
-- [ ] Automação FrontEnd
+- [x] Automação FrontEnd
 - [ ] Refatoração
+- [ ] Slide
 
 ## 💻 Pré-requisitos
 
