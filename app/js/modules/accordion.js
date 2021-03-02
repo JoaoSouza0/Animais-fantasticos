@@ -9,12 +9,16 @@ export default class Accordion {
     item.nextElementSibling.classList.toggle(this.activeClass);
   }
 
+  addEvent() {
+    this.toggleAccordion(this.accordionList[0]);
+    this.accordionList.forEach((item) => {
+      item.addEventListener('click', () => { this.toggleAccordion(item); });
+    });
+  }
+
   init() {
     if (this.accordionList.length) {
-      this.toggleAccordion(this.accordionList[0]);
-      this.accordionList.forEach((item) => {
-        item.addEventListener('click', () => { this.toggleAccordion(item); });
-      });
+      this.addEvent();
     }
   }
 }
