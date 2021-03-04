@@ -1,7 +1,7 @@
 import ScrollSuave from './modules/scrollSuave.js';
 
 import initModal from './modules/modal.js';
-import initToolTip from './modules/toolTip.js';
+import ToolTip from './modules/toolTip.js';
 import initDropDown from './modules/dropDown.js';
 import initMenuMobile from './modules/menuMobile.js';
 import initFuncionamento from './modules/funcionamento.js';
@@ -20,8 +20,10 @@ accordion.init();
 const tab = new TabNav('[data-tab="menu"] li', '[data-tab="content"] section');
 tab.init();
 
+const toolTip = new ToolTip('[data-mapa]');
+toolTip.init();
+
 initModal();
-initToolTip();
 initDropDown();
 initMenuMobile();
 initFuncionamento();

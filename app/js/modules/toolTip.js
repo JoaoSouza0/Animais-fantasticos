@@ -1,45 +1,39 @@
-export default function initToolTip() {
-  const map = document.querySelector('[data-mapa]');
+export default class ToolTip {
+  constructor(links) {
+    this.map = document.querySelector(links);
 
-  const onMouseMove = {
+    this.handlethis = this.handlethis.bind(this);
+    this.removeToolTip = this.removeToolTip.bind(this);
+    this.onMouseMove = this.onMouseMove.bind(this);
+  }
 
-    handleEvent(e) {
-      this.element.style.top = `${e.pageY + 20}px`;
-      this.element.style.left = `${e.pageX + 20}px`;
-    },
+  handlethis({ currentTarget }) {
+    this.criarToolTip(currentTarget);
+    currentTarget.addEventListener('mousemove', this.onMouseMove);
+    currentTarget.addEventListener('mouseleave', this.removeToolTip);
+  }
 
-  };
+  removeToolTip({ currentTarget }) {
+    this.toolTipBox.remove();
+    currentTarget.removeEventListener('mouseleave', this.removeToolTip);
+    currentTarget.removeEventListener('mousemove', this.onMouseMove);
+  }
 
-  function criarToolTip() {
+  onMouseMove(e) {
+    this.toolTipBox.style.top = `${e.pageY + 20}px`;
+    this.toolTipBox.style.left = `${e.pageX + 20}px`;
+  }
+
+  criarToolTip() {
     const toolTip = document.createElement('div');
-    const msg = map.getAttribute('title');
+    const msg = this.map.getAttribute('title');
     toolTip.innerText = msg;
     toolTip.classList.add('tooltip');
     document.body.appendChild(toolTip);
-
-    return toolTip;
+    this.toolTipBox = toolTip;
   }
 
-  const removeToolTip = {
-
-    handleEvent() {
-      this.element.remove();
-      map.removeEventListener('mouseleave', removeToolTip);
-      map.removeEventListener('mousemove', onMouseMove);
-    },
-
-  };
-
-  function handleMap(e) {
-    const toolTipBox = criarToolTip();
-    toolTipBox.style.top = `${e.pageY + 20}px`;
-    toolTipBox.style.left = `${e.pageX + 20}px`;
-    onMouseMove.element = toolTipBox;
-    removeToolTip.element = toolTipBox;
-
-    this.addEventListener('mouseleave', removeToolTip);
-    this.addEventListener('mousemove', onMouseMove);
+  init() {
+    this.map.addEventListener('mouseover', this.handlethis);
   }
-
-  map.addEventListener('mouseover', handleMap);
 }
