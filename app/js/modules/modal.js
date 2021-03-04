@@ -1,20 +1,31 @@
-export default function initModal() {
-  const linkActive = document.querySelector('[data-modal="abrir"]');
-  const close = document.querySelector('[data-modal="close"]');
-  const modal = document.querySelector('[data-modal="container"]');
+export default class Modal {
+  constructor(linksActive, close, modal) {
+    this.linkActive = document.querySelector(linksActive);
+    this.close = document.querySelector(close);
+    this.modal = document.querySelector(modal);
 
-  function toggleModal(e) {
-    e.preventDefault();
-    modal.classList.toggle('active');
+    this.toggleModal = this.toggleModal.bind(this);
+    this.closeModal = this.closeModal.bind(this);
   }
 
-  function closeModal(e) {
-    if (this === e.target) {
-      toggleModal(e);
+  toggleModal() {
+    this.modal.classList.toggle('active');
+  }
+
+  manageEvent(e) {
+    e.preventDefault();
+    this.toggleModal();
+  }
+
+  closeModal(e) {
+    if (this.modal === e.target) {
+      this.toggleModal(e);
     }
   }
 
-  linkActive.addEventListener('click', toggleModal);
-  close.addEventListener('click', toggleModal);
-  modal.addEventListener('click', closeModal);
+  init() {
+    this.linkActive.addEventListener('click', this.toggleModal);
+    this.close.addEventListener('click', this.toggleModal);
+    this.modal.addEventListener('click', this.closeModal);
+  }
 }
