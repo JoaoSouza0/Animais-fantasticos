@@ -34,6 +34,9 @@ export default class ToolTip {
   }
 
   init() {
-    this.map.addEventListener('mouseover', this.handlethis);
+    if (this.map) {
+      this.map.addEventListener('mouseover', this.handlethis);
+    }
+    return this;
   }
 }

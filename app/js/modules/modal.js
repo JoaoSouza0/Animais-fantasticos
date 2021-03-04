@@ -24,8 +24,12 @@ export default class Modal {
   }
 
   init() {
-    this.linkActive.addEventListener('click', this.toggleModal);
-    this.close.addEventListener('click', this.toggleModal);
-    this.modal.addEventListener('click', this.closeModal);
+    if (this.linksActive && this.close && this.modal) {
+      this.linkActive.addEventListener('click', this.toggleModal);
+      this.close.addEventListener('click', this.toggleModal);
+      this.modal.addEventListener('click', this.closeModal);
+    }
+
+    return this;
   }
 }
