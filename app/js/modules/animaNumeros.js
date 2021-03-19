@@ -1,7 +1,7 @@
 export default class AnimaNumeros {
   constructor(numeros, observerTarget, observerContais) {
     this.numeros = document.querySelectorAll(numeros);
-    this.aboserverTarget = document.querySelector(observerTarget);
+    this.observerTarget = document.querySelector(observerTarget);
     this.observerContais = observerContais;
     this.handleMutation = this.handleMutation.bind(this);
   }
@@ -34,11 +34,11 @@ export default class AnimaNumeros {
 
   addObserver() {
     this.observer = new MutationObserver(this.handleMutation);
-    this.observer.observe(this.aboserverTarget, { attributes: true });
+    this.observer.observe(this.observerTarget, { attributes: true });
   }
 
   init() {
-    if (true) {
+    if (this.numeros.length && this.observerTarget) {
       this.addObserver();
     }
   }
