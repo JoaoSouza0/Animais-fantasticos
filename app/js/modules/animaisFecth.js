@@ -1,4 +1,4 @@
-import initAnimaNumeros from './animaNumeros.js';
+import AnimaNumeros from './animaNumeros.js';
 
 export default function AnimaisFecth() {
   async function getAnimals(url) {
@@ -23,7 +23,8 @@ export default function AnimaisFecth() {
         animalsGrid.appendChild(animalsDiv);
       });
 
-      initAnimaNumeros();
+      const animaNumero = new AnimaNumeros('[data-numero]', '.numeros', 'active');
+      animaNumero.init();
     } catch (erro) {
       console.log(erro);
     }
