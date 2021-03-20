@@ -3,8 +3,8 @@ import Modal from './modules/modal.js';
 import initDropDown from './modules/dropDown.js';
 import initMenuMobile from './modules/menuMobile.js';
 import initFuncionamento from './modules/funcionamento.js';
-import initAnimalsFecth from './modules/animaisFecth.js';
-import initBtcFetch from './modules/bitcoinFetch.js';
+import animalsFecth from './modules/animaisFecth.js';
+import BtcFetch from './modules/bitcoinFetch.js';
 import Accordion from './modules/accordion.js';
 import initScrollAnima from './modules/scrollAnimacao.js';
 import TabNav from './modules/animacaoTab.js';
@@ -25,9 +25,11 @@ toolTip.init();
 const modal = new Modal('[data-modal="abrir"]', '[data-modal="close"]', '[data-modal="container"]');
 modal.init();
 
+animalsFecth('./animaisAPI.json', '.numeros-grid');
+
+BtcFetch('https://blockchain.info/ticker', '[data-btc]');
+
 initDropDown();
 initMenuMobile();
 initFuncionamento();
-initAnimalsFecth();
-initBtcFetch();
 initScrollAnima();

@@ -1,7 +1,6 @@
-export default function btcFecth() {
-  const url = 'https://blockchain.info/ticker';
-  const btcSpan = document.querySelector('[data-btc]');
-  
+export default function btcFecth(url, target) {
+  const btcSpan = document.querySelector(target);
+
   fetch(url)
     .then((response) => response.json())
     .then((btc) => {
