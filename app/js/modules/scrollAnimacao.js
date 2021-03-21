@@ -1,20 +1,36 @@
-export default function initAnimaScroll() {
-  const section = document.querySelectorAll('[data-anime="scroll"]');
-  const meiaTela = window.innerHeight * 0.6;
+export default class AnimaScroll {
+  constructor(targets) {
+    this.section = document.querySelectorAll(targets);
+    this.checkDistance = this.checkDistance.bind(this);
+    this.meiaTela = window.innerHeight * 0.6;
+  }
 
-  function tAnimaScroll() {
-    section.forEach((item) => {
-      const sectionTop = item.getBoundingClientRect().top;
-      const isSectionVisible = (sectionTop - meiaTela) < 0;
+  getDistance() {
+    this.distance = [...this.section].map((item) => {
+      const offset = item.offsetTop;
+      return {
+        element: item,
+        offset: Math.floor(offset - this.meiaTela),
+      };
+    });
+  }
 
-      if (isSectionVisible) {
-        item.classList.add('active');
-      } else if (item.classList.contains('active')) {
-        item.classList.remove('active');
+  checkDistance() {
+    this.distance.forEach((item) => {
+      if (window.pageYOffset > item.offset) {
+        item.element.classList.add('active');
+      } else if (item.element.classList.contains('active')) {
+        item.element.classList.remove('active');
       }
     });
   }
-  tAnimaScroll();
 
-  window.addEventListener('scroll', tAnimaScroll);
+  init() {
+    if (this.section.length) {
+      this.getDistance();
+      this.checkDistance();
+      window.addEventListener('scroll', this.checkDistance);
+    }
+    return this;
+  }
 }
