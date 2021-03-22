@@ -1,6 +1,6 @@
 import ScrollSuave from './modules/scrollSuave.js';
 import Modal from './modules/modal.js';
-import initDropDown from './modules/dropDown.js';
+import DropDown from './modules/dropDown.js';
 import initMenuMobile from './modules/menuMobile.js';
 import initFuncionamento from './modules/funcionamento.js';
 import animalsFecth from './modules/animaisFecth.js';
@@ -28,10 +28,12 @@ modal.init();
 const animaScroll = new AnimaScroll('[data-anime="scroll"]');
 animaScroll.init();
 
+const dropDown = new DropDown('[data-dropdown]', ['click', 'touchstart']);
+dropDown.init();
+
 animalsFecth('./animaisAPI.json', '.numeros-grid');
 
 BtcFetch('https://blockchain.info/ticker', '[data-btc]');
 
-initDropDown();
 initMenuMobile();
 initFuncionamento();
