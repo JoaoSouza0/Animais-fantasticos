@@ -1,7 +1,9 @@
+import debounce from './Helpers/debounce.js';
+
 export default class AnimaScroll {
   constructor(targets) {
     this.section = document.querySelectorAll(targets);
-    this.checkDistance = this.checkDistance.bind(this);
+    this.checkDistance = debounce(this.checkDistance.bind(this), 50);
     this.meiaTela = window.innerHeight * 0.6;
   }
 
