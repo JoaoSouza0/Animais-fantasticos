@@ -24,7 +24,7 @@ export default class Modal {
   }
 
   init() {
-    if (this.linksActive && this.close && this.modal) {
+    if (this.linkActive && this.modal) {
       this.linkActive.addEventListener('click', this.toggleModal);
       this.close.addEventListener('click', this.toggleModal);
       this.modal.addEventListener('click', this.closeModal);
